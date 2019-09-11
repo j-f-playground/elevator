@@ -1,0 +1,40 @@
+@import '~styles/colors';
+
+$height: 200px;
+$half-height: $height / 2;
+
+.container {
+  width: 200px;
+  height: $height;
+  position: relative;
+  transform-style: preserve-3d;
+  transform: translateZ(-$half-height);
+
+  .face {
+    position: absolute;
+    width: 200px;
+    height: $height;
+    border: 1px solid $color2;
+    background-color: rgba($grey, 0.2);
+
+    &.back {
+      transform: rotateY(180deg) translateZ($half-height);
+    }
+
+    &.right {
+      transform: rotateY(90deg) translateZ($half-height);
+    }
+
+    &.left {
+      transform: rotateY(-90deg) translateZ($half-height);
+    }
+
+    &.top {
+      transform: rotateX(90deg) translateZ($half-height);
+    }
+
+    &.bottom {
+      transform: rotateX(-90deg) translateZ($half-height);
+    }
+  }
+}

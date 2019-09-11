@@ -1,0 +1,18 @@
+@import '~styles/colors';
+
+.container {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  padding: 0 10px;
+
+  .name {
+    writing-mode: vertical-rl;
+    text-orientation: upright;
+    color: $color1;
+    font-size: 15px;
+    cursor: pointer;
+    user-select: none;
+  }
+}

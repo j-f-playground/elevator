@@ -1,19 +1,61 @@
+import Floors from 'components/Floors';
 import React from 'react';
-import logo from './img/logo.svg';
 import styles from './styles.module.scss';
+import Elevators from 'components/Elevators';
 
-const Home = () => (
-  <div className={styles.container}>
-    <header className={styles.header}>
-      <img src={logo} className={styles.logo} alt="logo" />
-      <p>
-        Edit <code>src/App.js</code> and save to reload.
-      </p>
-      <a className={styles.link} href="https://reactjs.org" target="_blank" rel="noopener noreferrer">
-        Learn React
-      </a>
-    </header>
-  </div>
-);
+class Home extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      elevators: [
+        {
+          id: 1,
+          floor: 'B',
+        },
+        {
+          id: 2,
+          floor: 'B',
+        },
+        {
+          id: 3,
+          floor: 'B',
+        },
+        {
+          id: 4,
+          floor: 'B',
+        },
+      ],
+      floors: [
+        {
+          name: 'B',
+          color: 'rgba(255, 255, 255, 0.2)',
+        },
+        {
+          name: '1',
+          color: 'rgba(213, 255, 0, 0.2)',
+        },
+        {
+          name: '2',
+          color: 'rgba(0, 229, 255, 0.2)',
+        },
+        {
+          name: '3',
+          color: 'rgba(251, 49, 49, 0.2)',
+        },
+      ],
+    };
+  }
+
+  render() {
+    const { elevators, floors } = this.state;
+
+    return (
+      <div className={styles.container}>
+        <Floors floors={floors.reverse()} />
+        <Elevators elevators={elevators} />
+      </div>
+    );
+  }
+}
 
 export default Home;
