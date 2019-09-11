@@ -9,12 +9,16 @@ class Floor extends React.PureComponent {
     onClick: func,
   };
 
+  onClick = () => {
+    this.props.onClick(this.props.name)
+  }
+
   render() {
-    const { color, name, onClick } = this.props;
+    const { color, name } = this.props;
 
     return (
       <div className={styles.container} style={{ backgroundColor: color }}>
-        <div className={styles.name} onClick={onClick}>
+        <div className={styles.name} onClick={this.onClick}>
           FLOOR {name}
         </div>
       </div>

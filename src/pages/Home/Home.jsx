@@ -46,12 +46,28 @@ class Home extends React.Component {
     };
   }
 
+  handleOnClick = (name) => {
+    console.log(name);
+    //let newFloors = [...this.state.floors];
+    let newElevators = [...this.state.elevators];
+
+    newElevators = newElevators.map(item => {
+      if (item.floor !== name) {
+        item.floor = name;
+      }
+      return item;
+    })
+    this.setState({
+      elevators: newElevators,
+    });
+  }
+
   render() {
     const { elevators, floors } = this.state;
 
     return (
       <div className={styles.container}>
-        <Floors floors={floors.reverse()} />
+        <Floors floors={floors.reverse()} onClick={this.handleOnClick} />
         <Elevators elevators={elevators} />
       </div>
     );
